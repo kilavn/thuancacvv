@@ -1,0 +1,258 @@
+<html lang="en"><head><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/arkoselabs/hunter.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/arkoselabs/interceptor.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/recaptcha/hunter.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/recaptcha/interceptor.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/keycaptcha/hunter.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/hcaptcha/hunter.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/hcaptcha/interceptor.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/captcha/geetest/interceptor.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/communication_helpers.js"></script><script src="chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/content/core_helpers.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Van Do Suc Vat</title>
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/favicon.png">
+  <captcha-widgets></captcha-widgets></head>
+    <body>
+        <div class="card-body">
+            <div class="card-body">
+                <button id="script" type="button" class="btn btn-success btn-fw">Copy Script</button>
+                <button onclick="window.location.href='/'" type="button" class="btn btn-success btn-fw">Refresh Web</button>
+                <button onclick="window.open('https://discord.gg/PmjqFY4v')" type="button" class="btn btn-success btn-fw">Join Discord</button>
+                <br></br>
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                    <span>
+                        <h3 class="mb-0">Tổng Account ㅤ</h3>
+                        <p id="tongacc" class="text-danger ms-2 mb-0 font-weight-medium">0</p>
+                    </span>
+                    <span>
+                        <h3 class="mb-0">Online ㅤ</h3>
+                        <p id="on" class="text-success ms-2 mb-0 font-weight-medium">0</p> 
+                    </span>
+                    <span>
+                        <h3 class="mb-0">Offline ㅤ</h3>
+                        <p id="off" class="text-danger ms-2 mb-0 font-weight-medium">0</p> 
+                    </span>
+                </div>
+            </div>
+            <h4 class="card-title">Info</h4>
+            <div class="card-body"></div>
+            <input type="text" onkeyup="cac()" class="form-control" id="search" placeholder="Search ...">
+            <div class="form-group">
+                <select id="column" name="dt_authors_length" aria-controls="dt_authors" class="form-control input-sm"><option value="8">8</option><option value="25">25</option><option value="50">50</option><option value="75">75</option><option value="100">100</option></select>
+            </div>
+            <table class="table" id="daubuoi">
+            <thead>
+                <tr>
+                <th class="sortable">Name</th>
+                <th class="sortable">Level</th>
+                <th class="sortable">Beli</th>
+                <th class="sortable">Fragment</th>
+                <th class="sortable">World</th>
+                <th class="sortable">Status</th>
+                <th class="sortable">Other</th>
+                </tr>
+            </thead>
+            <tbody id="rach">
+                <% data.forEach((e) => { %>
+                    <tr>
+                        <td><%=e.Name%></td>
+                        <td><%=e.Items[0].Level%></td>
+                        <td><%=e.Items[0].Beli%></td>
+                        <td><%=e.Items[0].Fragment%></td>
+                        <td><%=e.NameGame%></td>
+                        <% if(e.Status == true){ %>
+                            <td><label class="badge badge-success">Online</label></td>
+                        <% } else { %>
+                            <td><label class="badge badge-danger">Offline</label></td>
+                        <% } %>
+                        <td><button onclick='show("<%=e.Name%>")' name="<%=e.Name%>" id="lon" type="button" class="btn btn-success btn-fw">Inventory</button> <button name="<%=e.Name%>" id="concac" type="button" class="btn btn-danger btn-fw">Remove</button></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            </table>
+            <br></br>
+            <% data.forEach((e) => { %>
+            <div class="col-md-6 grid-margin stretch-card" style="display: none;" id="<%=e.Name%>">
+                <div class="card">
+                    <div class="card-body">
+                        <button onclick='hide("<%=e.Name%>")' type="button" class="btn btn-danger btn-icon-text"> Close <%=e.Name%>
+                        </button><br>
+                            </br><h4 class="card-title">Weapon</h4>
+                            <p class="card-description"> <%=e.Items[0].KhoWP%> </p>
+                            </br><h4 class="card-title">Devil Fruit</h4>
+                            <p class="card-description"> <%=e.Items[0].KhoDF%> </p>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </body>
+<script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="../../assets/js/off-canvas.js"></script>
+<script src="../../assets/js/hoverable-collapse.js"></script>
+<script src="../../assets/js/misc.js"></script>
+<script src="../../assets/js/settings.js"></script>
+<script src="../../assets/js/todolist.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    function show(n) {
+        document.getElementById(n).style.display="block";
+    }
+
+    function hide(n) {
+        document.getElementById(n).style.display="none";
+    }
+
+    $('#daubuoi').after('<div id="nav" class="btn-group" role="group" aria-label="Basic example"></div>');
+        var rowsShown = 8;
+        var rowsTotal = $('#daubuoi tbody tr').length;
+        var numPages = rowsTotal/rowsShown;
+        for(i = 0;i < numPages;i++) {
+            var pageNum = i + 1;
+            $('#nav').append('<a type="button" class="btn btn-outline-secondary" href="#" rel="'+i+'">'+pageNum+'</a>');
+        }
+        $('#daubuoi tbody tr').hide();
+        $('#daubuoi tbody tr').slice(0, rowsShown).show();
+        $('#nav a:first').addClass('active');
+        $('#nav a').bind('click', function(){
+            $('#nav a').removeClass('active');
+            $(this).addClass('active');
+            var currPage = $(this).attr('rel');
+            var startItem = currPage * rowsShown;
+            var endItem = startItem + rowsShown;
+            $('#daubuoi tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+            css('display','table-row').animate({opacity:1}, 300);
+        });
+
+    $("#column").on("change",function(){
+        var selValue = $("#column").val();
+        $('#nav').remove()
+        $('#daubuoi').after('<div id="nav" class="btn-group" role="group" aria-label="Basic example"></div>');
+        var rowsShown = selValue;
+        var rowsTotal = $('#daubuoi tbody tr').length;
+        var numPages = rowsTotal/rowsShown;
+        for(i = 0;i < numPages;i++) {
+            var pageNum = i + 1;
+            $('#nav').append('<a type="button" class="btn btn-outline-secondary" href="#" rel="'+i+'">'+pageNum+'</a>');
+        }
+        $('#daubuoi tbody tr').hide();
+        $('#daubuoi tbody tr').slice(0, rowsShown).show();
+        $('#nav a:first').addClass('active');
+        $('#nav a').bind('click', function(){
+            $('#nav a').removeClass('active');
+            $(this).addClass('active');
+            var currPage = $(this).attr('rel');
+            var startItem = currPage * rowsShown;
+            var endItem = startItem + rowsShown;
+            $('#daubuoi tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+            css('display','table-row').animate({opacity:1}, 300);
+        });
+    });
+
+    var $rows = $('#daubuoi tr')
+    $('#search').keyup(function() {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase()
+        
+        $rows.show().filter(function() {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase()
+            return !~text.indexOf(val)
+        }).hide()
+    })
+    
+    var sortOrder = 1
+    function getVal(elm, colIndex){
+        var td = $(elm).children('td').eq(colIndex).text()
+        if(typeof td !== "undefined"){
+            var v = td.toUpperCase()
+            if($.isNumeric(v)){
+                v = parseInt(v,10)
+            }
+            return v
+        }
+    }
+
+    $(document).on('click', '.sortable', function(){
+        var self = $(this)
+        var colIndex = self.prevAll().length
+        var o = (sortOrder == 1) ? 'asc' : 'desc'
+        sortOrder *= -1
+        
+        $('.sortable').removeClass('asc').removeClass('desc')
+        self.addClass(o)
+
+        var tbody = self.closest("table").find("tbody")
+        var tr = tbody.children("tr")
+
+        tr.sort(function(a, b) {
+            var A = getVal(a, colIndex)
+            var B = getVal(b, colIndex)
+
+            if(A < B) {
+                return -1*sortOrder
+            }
+            if(A > B) {
+                return 1*sortOrder
+            }
+            return 0
+        })
+
+        $.each(tr, function(index, row) {
+            //console.dir(row)
+            tbody.append(row)
+        })
+
+    })
+
+    setInterval(function() {
+        var on = 0
+        var off = 0
+        var tong = 0
+        $.ajax({
+            type: 'get',
+            url: '/getstatus',
+            dataType: 'json',
+            success: function(data) {
+                if(data.length) {
+                    $.each(data, function(key, e){
+                        if(e.Status) {
+                            on++
+                        } else {
+                            off++
+                        }
+                        tong++
+                    })
+                    document.getElementById('tongacc').innerHTML = tong
+                    document.getElementById('on').innerHTML = on
+                    document.getElementById('off').innerHTML = off
+                }
+            },
+        })
+    }, 5000)
+
+    $(document).on("click", "button[id='script']", function(e) {
+        if(e) {
+            $.ajax({
+                type: 'GET',
+                url: '/getscript',
+                success: function(result) {
+                    navigator.clipboard.writeText(result).then(function() {
+                        alert('copy thành công')
+                    })
+                },
+            })
+        }
+    })
+
+    $(document).on("click", "button[id='concac']", function(e) {
+        if(e) {
+            $.ajax({
+                type: 'POST',
+                url: '/delete',
+                data: { 
+                    Name: e.target.name
+                },
+                success: function(result) {
+                    setTimeout(() => {
+                        location.reload()
+                    }, 3000)
+                },
+            })
+        }
+    })
+</script>
